@@ -1,1 +1,4 @@
 /UnitTestingCourse
+bin/
+obj/
+.vs/
