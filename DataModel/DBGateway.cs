@@ -3,7 +3,7 @@ using BusinessContracts.WorkingStatistics;
 
 namespace DataModel
 {
-    public class DBGateway : IDBGateway
+    public class DBGateway : IDbGateway
     {
         public bool Connected { get; }
 
