@@ -1,10 +1,9 @@
 ﻿using BusinessContracts.DbGateway;
 using BusinessContracts.WorkingStatistics;
-using System;
 
 namespace Business.Tests.TestDoubles
 {
-    public class DbGatewayStub : IDBGateway
+    public class DbGatewayStub : IDbGateway
     {
         private IWorkingStatistics _ws;
         public bool Connected => false;
