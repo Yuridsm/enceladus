@@ -3,7 +3,7 @@ using BusinessContracts.WorkingStatistics;
 
 namespace Business.Tests.TestDoubles
 {
-    public class DbGatewaySpy : IDBGateway
+    public class DbGatewaySpy : IDbGateway
     {
         public bool Connected { get; private set; }
         public int Id { get; private set; }
