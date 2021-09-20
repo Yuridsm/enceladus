@@ -2,7 +2,7 @@
 
 namespace BusinessContracts.DbGateway
 {
-    public interface IDBGateway
+    public interface IDbGateway
     {
         IWorkingStatistics GetWorkingStatistics(int id);
         bool Connected { get; }
