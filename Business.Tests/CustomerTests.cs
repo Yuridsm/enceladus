@@ -1,8 +1,6 @@
 using Business.Tests.TestDoubles;
-using BusinessContracts.DbGateway;
-using BusinessEntities.CustomerEntity;
 using BusinessEntities.WorkStatisticEntity;
-using BusinessServices.CustomerServices;
+using BusinessServices.Customer.CustomerServices;
 using NUnit.Framework;
 
 namespace Business.Tests
@@ -15,7 +13,7 @@ namespace Business.Tests
         {
             DbGatewayStub gateway = new DbGatewayStub();
             gateway.SetWorkingStatistics(new WorkingStatistics() { PayHourly = true, HourSalary = 100, WorkingHours = 10, MonthSalary = 9 });
-
+            
             var sut = new CustomerServices(gateway, new LoggerDummy());
 
             const int anyId = 1;
@@ -74,6 +72,22 @@ namespace Business.Tests
             const bool expectConnect = true;
 
             Assert.That(expectConnect, Is.EqualTo(gateway.Connected));
+        }
+
+        [Test]
+        public void CalculateWage_PassesCorrectId2()
+        {
+            const int id = 1;
+
+            var gateway = new DbGatewayMock();
+
+            gateway.SetWorkingStatistics(new WorkingStatistics());
+
+            var sut = new CustomerServices(gateway, new LoggerDummy());
+
+            sut.CalculateWage(id);
+
+            Assert.IsTrue(gateway.VerifyCalledWithProperId(id));
         }
     }
 }
